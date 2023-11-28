@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cirdb5ac3n4nl"]
+
+[ext_resource type="PackedScene" uid="uid://ctlbxfe1pgga3" path="res://escenas/niveles/TowerStation/tile_map.tscn" id="1_jmyqc"]
+[ext_resource type="PackedScene" uid="uid://bc0d7dudkr4a4" path="res://escenas/enemigos-LVL-1/snake.tscn" id="3_ir0gx"]
+[ext_resource type="PackedScene" uid="uid://cvgjd54v0lbvp" path="res://escenas/niveles/TowerStation/parallax_background.tscn" id="4_b0a2g"]
+[ext_resource type="PackedScene" uid="uid://cirykxmonhjg7" path="res://escenas/enemigos-LVL-1/trap.tscn" id="5_rabdp"]
+[ext_resource type="PackedScene" uid="uid://dviqo8d6y2vrs" path="res://escenas/personaje joe P/joe_p.tscn" id="5_w0ui2"]
+
+[node name="level 1-1" type="Node2D"]
+position = Vector2(6, -1)
+
+[node name="towerstation-1" parent="." instance=ExtResource("1_jmyqc")]
+position = Vector2(-56, 8)
+
+[node name="snake" parent="." instance=ExtResource("3_ir0gx")]
+position = Vector2(745, 79)
+
+[node name="snake2" parent="." instance=ExtResource("3_ir0gx")]
+position = Vector2(446, 75)
+
+[node name="snake3" parent="." instance=ExtResource("3_ir0gx")]
+position = Vector2(498, 671)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_b0a2g")]
+
+[node name="trap" parent="." instance=ExtResource("5_rabdp")]
+position = Vector2(537, 257)
+
+[node name="joe_p" parent="." instance=ExtResource("5_w0ui2")]
+position = Vector2(265, 59)
