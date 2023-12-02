@@ -204,7 +204,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gt30e")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack1",
 "speed": 9.0
 }, {
@@ -224,7 +224,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n047f")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack2",
 "speed": 9.0
 }, {
@@ -252,7 +252,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r40ep")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -303,7 +303,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 7.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -374,7 +374,8 @@ script = ExtResource("1_p5gkg")
 texture_filter = 1
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_exaqx")
-animation = &"attack2"
+animation = &"hurt"
+frame_progress = 0.648621
 
 [node name="CollisionJP" type="CollisionShape2D" parent="."]
 position = Vector2(1, 21)

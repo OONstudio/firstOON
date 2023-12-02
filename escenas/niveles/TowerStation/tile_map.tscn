@@ -1434,5 +1434,5 @@ texture = SubResource("GradientTexture2D_o8pf8")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.521569, 0.490196, 0.490196, 1)
-energy = 0.2
+energy = 0.97
 blend_mode = 1
