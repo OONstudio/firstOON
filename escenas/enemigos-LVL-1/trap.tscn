@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cirykxmonhjg7"]
+[gd_scene load_steps=10 format=3 uid="uid://cirykxmonhjg7"]
 
+[ext_resource type="Script" path="res://escenas/enemigos-LVL-1/trap.gd" id="1_32b1m"]
 [ext_resource type="Texture2D" uid="uid://bh4ad1whbll6f" path="res://Assets/niveles/Tower Station/4 Animated objects/Trap.png" id="1_76r60"]
+[ext_resource type="PackedScene" uid="uid://udlsjvsayxlr" path="res://escenas/enemigos-LVL-1/trapShoot.tscn" id="2_jq5r3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocjqa"]
 size = Vector2(20, 34)
@@ -53,6 +55,8 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="trap" type="CharacterBody2D"]
+script = ExtResource("1_32b1m")
+trapShoot = ExtResource("2_jq5r3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -75,3 +79,15 @@ color = Color(0.464844, 0.996094, 0.996094, 1)
 energy = 1.4
 texture = SubResource("GradientTexture2D_nnc2y")
 texture_scale = 2.2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-15, -4)
+target_position = Vector2(-140, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-21, -4)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

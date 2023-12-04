@@ -8,7 +8,7 @@ var hitplayer = false
 
 
 func _ready():
-	hit()
+
 	$Area2D/CollisionShape2D.disabled = true
 
 func _physics_process(delta):

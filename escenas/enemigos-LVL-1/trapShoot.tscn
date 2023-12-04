@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://udlsjvsayxlr"]
+
+[ext_resource type="Texture2D" uid="uid://cay2yp303hpco" path="res://Assets/personajes/enemigos/trap shoot/shoot.png" id="1_q0b2f"]
+[ext_resource type="Script" path="res://escenas/enemigos-LVL-1/trapShoot.gd" id="1_quroe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmx46"]
+atlas = ExtResource("1_q0b2f")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq1kk"]
+atlas = ExtResource("1_q0b2f")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4snk6"]
+atlas = ExtResource("1_q0b2f")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxvgt"]
+atlas = ExtResource("1_q0b2f")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h8bi"]
+atlas = ExtResource("1_q0b2f")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_siojf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmx46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq1kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4snk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxvgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h8bi")
+}],
+"loop": true,
+"name": &"trapShoot",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8q7x0"]
+radius = 3.0
+
+[sub_resource type="Gradient" id="Gradient_xetmi"]
+offsets = PackedFloat32Array(0, 0.284483, 0.431034)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4obe5"]
+gradient = SubResource("Gradient_xetmi")
+fill = 1
+fill_from = Vector2(0.515337, 0.493865)
+fill_to = Vector2(1, 0.0214724)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_quroe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, -4)
+sprite_frames = SubResource("SpriteFrames_siojf")
+animation = &"trapShoot"
+frame = 2
+frame_progress = 0.55569
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_8q7x0")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 0)
+color = Color(0.203922, 0.768627, 0.811765, 1)
+texture = SubResource("GradientTexture2D_4obe5")
+texture_scale = 0.52
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
