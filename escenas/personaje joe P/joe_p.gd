@@ -50,6 +50,14 @@ func _input(event):
 		await $animacionesJP.animation_finished
 		$Area2D/CollisionShape2D.disabled= true
 		set_physics_process(true)
+		
+	elif Input.is_action_just_pressed("atacar2") and !hitplayer:
+		set_physics_process(false)
+		$animacionesJP.play("attack1")
+		$Area2D/CollisionShape2D.disabled= false
+		await $animacionesJP.animation_finished
+		$Area2D/CollisionShape2D.disabled= true
+		set_physics_process(true)
 
 func animaciones():
 	if is_on_floor():

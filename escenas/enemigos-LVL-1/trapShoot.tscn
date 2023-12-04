@@ -77,7 +77,8 @@ shape = SubResource("CircleShape2D_8q7x0")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-1, 0)
 color = Color(0.203922, 0.768627, 0.811765, 1)
+energy = 1.77
 texture = SubResource("GradientTexture2D_4obe5")
-texture_scale = 0.52
+texture_scale = 0.8
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
