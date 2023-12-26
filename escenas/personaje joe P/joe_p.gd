@@ -84,6 +84,14 @@ func hit():
 	velocity = Vector2.ZERO
 	hitplayer= false
 
+	get_tree().get_nodes_in_group("barravida")[0].DisminuirVida(25)
+
+func dead():
+	set_physics_process(false)
+	$animacionesJP.play("dead")
+	await $animacionesJP.animation_finished
+	queue_free()
+
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemie"):

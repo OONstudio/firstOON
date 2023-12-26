@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://blmqa0nyqs74t"]
+
+[ext_resource type="Script" path="res://escenas/barra de vida/progress_bar.gd" id="1_upvry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4twl"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.694118, 0.513726, 0.0117647, 1)
+corner_radius_top_left = 1
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0.0431373, 0.027451, 0.0117647, 0.6)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdofi"]
+bg_color = Color(0.392157, 0.0705882, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0.415686, 0.0784314, 0, 1)
+anti_aliasing_size = 5.995
+
+[node name="barravida" type="ProgressBar" groups=["barravida"]]
+texture_filter = 1
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 145.0
+offset_bottom = 40.0
+scale = Vector2(1, 0.52)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_t4twl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qdofi")
+value = 100.0
+rounded = true
+script = ExtResource("1_upvry")

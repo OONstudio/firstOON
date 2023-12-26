@@ -259,7 +259,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iitg2")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -287,7 +287,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_apc7k")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -418,9 +418,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_unykx")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
-"speed": 50.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -458,14 +458,16 @@ size = Vector2(11, 47)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16wx6"]
 size = Vector2(29.75, 44)
 
-[node name="John smith" type="CharacterBody2D" groups=["player"]]
+[node name="John smith" type="CharacterBody2D" groups=["barravida", "player"]]
 texture_filter = 1
 script = ExtResource("1_htgeq")
 
 [node name="animacionesjs" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_7r6c2")
-animation = &"attack"
+animation = &"shoot"
+frame = 11
+frame_progress = 1.0
 
 [node name="CollisionJS" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 21.5)

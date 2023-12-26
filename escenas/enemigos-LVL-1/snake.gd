@@ -32,7 +32,7 @@ func _physics_process(delta):
 func detectar():
 	if $right.is_colliding():
 		var obj = $right.get_collider()
-		if obj.is_in_group("player"):
+		if obj.is_in_group("player") :
 			perseguir = true
 			velocity.x= vel_perseguir
 			$AnimatedSnake.flip_h = true 
@@ -40,7 +40,7 @@ func detectar():
 			perseguir = false
 	if $left.is_colliding():
 		var obj = $left.get_collider()
-		if obj.is_in_group("player"):
+		if obj.is_in_group("player"): 
 			perseguir = true
 			velocity.x= -vel_perseguir
 			$AnimatedSnake.flip_h = false
