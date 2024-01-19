@@ -1,15 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cirdb5ac3n4nl"]
+[gd_scene load_steps=10 format=3 uid="uid://cirdb5ac3n4nl"]
 
+[ext_resource type="AudioStream" uid="uid://c12bnvsw7esex" path="res://Sounds/niveles/torre1nivel1.wav" id="1_gkn2s"]
 [ext_resource type="PackedScene" uid="uid://ctlbxfe1pgga3" path="res://escenas/niveles/TowerStation/tile_map.tscn" id="1_jmyqc"]
 [ext_resource type="PackedScene" uid="uid://bc0d7dudkr4a4" path="res://escenas/enemigos-LVL-1/snake.tscn" id="3_ir0gx"]
 [ext_resource type="PackedScene" uid="uid://cvgjd54v0lbvp" path="res://escenas/niveles/TowerStation/parallax_background.tscn" id="4_b0a2g"]
 [ext_resource type="PackedScene" uid="uid://cirykxmonhjg7" path="res://escenas/enemigos-LVL-1/trap.tscn" id="5_rabdp"]
-[ext_resource type="PackedScene" uid="uid://f7ogai0xsnhd" path="res://escenas/enemigos-LVL-1/enemy.tscn" id="6_m84fv"]
 [ext_resource type="PackedScene" uid="uid://blmqa0nyqs74t" path="res://escenas/barra de vida/progress_bar.tscn" id="7_uuxmy"]
 [ext_resource type="PackedScene" uid="uid://dviqo8d6y2vrs" path="res://escenas/personaje joe P/joe_p.tscn" id="7_xkefu"]
+[ext_resource type="PackedScene" uid="uid://ckm0w1k50kdyf" path="res://escenas/potionsUP/power_up_life.tscn" id="8_ocyju"]
+[ext_resource type="PackedScene" uid="uid://bagha2673pphj" path="res://escenas/potionsUP/power_up_life_minor.tscn" id="9_0nbdu"]
 
 [node name="level 1-1" type="Node2D"]
 position = Vector2(6, -1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(600, 11)
+stream = ExtResource("1_gkn2s")
+volume_db = -27.566
+autoplay = true
+max_distance = 700.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -39,8 +48,11 @@ position = Vector2(537, 257)
 [node name="snake4" parent="." instance=ExtResource("3_ir0gx")]
 position = Vector2(308, 350)
 
-[node name="enemy" parent="." instance=ExtResource("6_m84fv")]
-position = Vector2(698, 552)
-
 [node name="joe_p" parent="." instance=ExtResource("7_xkefu")]
-position = Vector2(236, 200)
+position = Vector2(222, 57)
+
+[node name="PowerUpLife" parent="." instance=ExtResource("8_ocyju")]
+position = Vector2(960, 70)
+
+[node name="PowerUpLifeMinor" parent="." instance=ExtResource("9_0nbdu")]
+position = Vector2(773, 61)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bc0d7dudkr4a4"]
+[gd_scene load_steps=36 format=3 uid="uid://bc0d7dudkr4a4"]
 
 [ext_resource type="Script" path="res://escenas/enemigos-LVL-1/snake.gd" id="1_nks2r"]
 [ext_resource type="Texture2D" uid="uid://d1g31a67x3dyh" path="res://Assets/personajes/enemigos/snake/Snake_attack1.png" id="2_xqye1"]
@@ -206,6 +206,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1ach"]
 size = Vector2(21, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ku4u"]
+size = Vector2(36, 14)
+
+[sub_resource type="Gradient" id="Gradient_fed75"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.344828, 0.853448)
+colors = PackedColorArray(0.015625, 0.914063, 0.410156, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7r7vg"]
+gradient = SubResource("Gradient_fed75")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.472393, 0.43865)
+fill_to = Vector2(0.883436, 0.904908)
+
 [node name="snake" type="CharacterBody2D" groups=["enemie"]]
 position = Vector2(-29, -3)
 script = ExtResource("1_nks2r")
@@ -215,17 +230,37 @@ texture_filter = 1
 position = Vector2(-2, -37)
 sprite_frames = SubResource("SpriteFrames_g5dyi")
 animation = &"attack"
-frame = 3
-frame_progress = 0.0132275
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionSnake" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-4, 20)
 shape = SubResource("RectangleShape2D_i1ach")
 
 [node name="right" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(9, 18)
 target_position = Vector2(150, 0)
 
 [node name="left" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-17, 18)
 target_position = Vector2(-150, 0)
+
+[node name="damage" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage"]
+position = Vector2(-6, 20)
+shape = SubResource("RectangleShape2D_2ku4u")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-14, 23)
+color = Color(0.945098, 0.133333, 0.290196, 1)
+energy = 3.48
+shadow_enabled = true
+shadow_color = Color(0.496094, 0.09375, 0.210938, 1)
+texture = SubResource("GradientTexture2D_7r7vg")
+
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]

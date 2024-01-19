@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dviqo8d6y2vrs"]
+[gd_scene load_steps=62 format=3 uid="uid://dviqo8d6y2vrs"]
 
 [ext_resource type="Texture2D" uid="uid://t04d4bd6jqkw" path="res://Assets/personajes/principales/Joe P/Attack_1.png" id="1_e0lmm"]
 [ext_resource type="Script" path="res://escenas/personaje joe P/joe_p.gd" id="1_p5gkg"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bfelafpfgrcni" path="res://Assets/personajes/principales/Joe P/Jump.png" id="6_4cva6"]
 [ext_resource type="Texture2D" uid="uid://chgyf2p0mr73f" path="res://Assets/personajes/principales/Joe P/Run.png" id="7_wr0hb"]
 [ext_resource type="Texture2D" uid="uid://bjm27sagtgrs1" path="res://Assets/personajes/principales/Joe P/Walk.png" id="8_k2nh5"]
+[ext_resource type="AudioStream" uid="uid://cra0p32a5ar2f" path="res://Sounds/joep/Attack.wav" id="10_k8ax3"]
+[ext_resource type="AudioStream" uid="uid://t27qifgeyufy" path="res://Sounds/joep/jump.wav" id="11_tgl8e"]
+[ext_resource type="AudioStream" uid="uid://bf7qpc8pg77wp" path="res://Sounds/joep/joep-death.mp3" id="12_1pvdy"]
+[ext_resource type="AudioStream" uid="uid://1mukdo2pgj6n" path="res://Sounds/joep/joeP-hurt.wav" id="12_a5rrs"]
+[ext_resource type="AudioStream" uid="uid://sld0qmgyh86e" path="res://Sounds/joep/death-personajes.mp3" id="14_lfkiv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2ghp"]
 atlas = ExtResource("1_e0lmm")
@@ -243,7 +248,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -375,6 +380,8 @@ texture_filter = 1
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_exaqx")
 animation = &"dead"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionJP" type="CollisionShape2D" parent="."]
 position = Vector2(1, 21)
@@ -392,5 +399,25 @@ editor_draw_drag_margin = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["arma", "enemie"]]
 position = Vector2(31.5, 22)
 shape = SubResource("RectangleShape2D_j7pgf")
+
+[node name="attack1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_k8ax3")
+volume_db = -12.53
+
+[node name="attack2" type="AudioStreamPlayer2D" parent="."]
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_tgl8e")
+volume_db = -13.783
+
+[node name="dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_1pvdy")
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_a5rrs")
+volume_db = -8.771
+
+[node name="deadvoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_lfkiv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

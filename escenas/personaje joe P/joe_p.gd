@@ -32,6 +32,7 @@ func _physics_process(delta):
 				
 		if is_on_floor():
 			if  Input.is_action_just_pressed("ui_up"):
+				$jump.play()
 				velocity.y = -salto
 		else: 
 			if Input.is_action_just_released("ui_up"):
@@ -44,6 +45,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept") and !hitplayer:
+		$attack1.play()
 		set_physics_process(false)
 		$animacionesJP.play("attack2")
 		$Area2D/CollisionShape2D.disabled= false
@@ -80,6 +82,7 @@ func hit():
 		velocity = Vector2 (100,-100)
 		
 	$animacionesJP.play("hurt")
+	$hurt.play()
 	await $animacionesJP.animation_finished
 	velocity = Vector2.ZERO
 	hitplayer= false
@@ -89,6 +92,8 @@ func hit():
 func dead():
 	set_physics_process(false)
 	$animacionesJP.play("dead")
+	$deadvoice.play() 
+	$dead.play()
 	await $animacionesJP.animation_finished
 	queue_free()
 

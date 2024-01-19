@@ -47,9 +47,17 @@ func detectar():
 		else:
 			perseguir = false
 
+func _on_damage_body_entered(body):
+	if body.is_in_group("player"):
+		body.hit()
+		$AnimatedSnake.play("attack")
+		
+
 func death():
 	print("el enemigo esta muriendo")
 	set_physics_process(false)
 	$AnimatedSnake.play("death")
 	await ($AnimatedSnake.animation_finished)
 	queue_free()
+
+

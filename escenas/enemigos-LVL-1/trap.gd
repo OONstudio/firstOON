@@ -18,6 +18,7 @@ func shoot():
 	var newbullet = trapShoot.instantiate()
 	newbullet.global_position = $Marker2D.global_position
 	get_parent().add_child(newbullet)
+	
 
 
 func _on_timer_timeout():

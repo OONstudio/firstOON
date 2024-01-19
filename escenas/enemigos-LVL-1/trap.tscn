@@ -90,4 +90,7 @@ position = Vector2(-21, -4)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="laser" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
