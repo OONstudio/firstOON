@@ -9,4 +9,4 @@ func _on_body_entered(body):
 		get_tree().get_nodes_in_group("barravida")[0].value += extralife
 		
 	queue_free()
-
+	$PotionMinor.play()

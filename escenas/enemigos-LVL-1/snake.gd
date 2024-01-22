@@ -51,12 +51,16 @@ func _on_damage_body_entered(body):
 	if body.is_in_group("player"):
 		body.hit()
 		$AnimatedSnake.play("attack")
+		$snakeAttack.play()
 		
 
 func death():
 	print("el enemigo esta muriendo")
 	set_physics_process(false)
+	$hit.play()
 	$AnimatedSnake.play("death")
+	
+	$SnakeDeath.play()
 	await ($AnimatedSnake.animation_finished)
 	queue_free()
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckm0w1k50kdyf"]
+[gd_scene load_steps=5 format=3 uid="uid://ckm0w1k50kdyf"]
 
 [ext_resource type="Texture2D" uid="uid://f81rstkjafmg" path="res://Assets/potion/Icon45.png" id="1_b154o"]
 [ext_resource type="Script" path="res://escenas/potionsUP/power_up_life.gd" id="1_fkmtr"]
+[ext_resource type="AudioStream" uid="uid://ebcidp2sxqn2" path="res://Sounds/potions/PotionLifeUp.wav" id="3_t60t5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ve4t"]
 radius = 6.0
@@ -18,5 +19,8 @@ texture = ExtResource("1_b154o")
 position = Vector2(-1, -2)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_1ve4t")
+
+[node name="PotionUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t60t5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

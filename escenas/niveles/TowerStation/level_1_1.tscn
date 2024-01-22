@@ -16,9 +16,9 @@ position = Vector2(6, -1)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(600, 11)
 stream = ExtResource("1_gkn2s")
-volume_db = -27.566
+volume_db = -3.869
 autoplay = true
-max_distance = 700.0
+max_distance = 1000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -49,7 +49,7 @@ position = Vector2(537, 257)
 position = Vector2(308, 350)
 
 [node name="joe_p" parent="." instance=ExtResource("7_xkefu")]
-position = Vector2(222, 57)
+position = Vector2(173, 651)
 
 [node name="PowerUpLife" parent="." instance=ExtResource("8_ocyju")]
 position = Vector2(960, 70)

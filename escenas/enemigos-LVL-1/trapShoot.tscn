@@ -71,7 +71,6 @@ frame = 2
 frame_progress = 0.55569
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_8q7x0")
 
@@ -82,9 +81,9 @@ energy = 1.77
 texture = SubResource("GradientTexture2D_4obe5")
 texture_scale = 0.8
 
-[node name="laser" type="AudioStreamPlayer" parent="."]
+[node name="laser" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5mggs")
-volume_db = -41.349
+volume_db = 5.012
 autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

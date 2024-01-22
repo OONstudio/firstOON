@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cirykxmonhjg7"]
+[gd_scene load_steps=12 format=3 uid="uid://cirykxmonhjg7"]
 
 [ext_resource type="Script" path="res://escenas/enemigos-LVL-1/trap.gd" id="1_32b1m"]
 [ext_resource type="Texture2D" uid="uid://bh4ad1whbll6f" path="res://Assets/niveles/Tower Station/4 Animated objects/Trap.png" id="1_76r60"]
 [ext_resource type="PackedScene" uid="uid://udlsjvsayxlr" path="res://escenas/enemigos-LVL-1/trapShoot.tscn" id="2_jq5r3"]
+[ext_resource type="AudioStream" uid="uid://h30ki5drrnyg" path="res://Sounds/enemigos/torre1/trapSound.mp3" id="4_wwcvw"]
+[ext_resource type="Script" path="res://escenas/enemigos-LVL-1/TrapSound.gd" id="5_m5d7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocjqa"]
 size = Vector2(20, 34)
@@ -90,7 +92,12 @@ position = Vector2(-21, -4)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="laser" type="AudioStreamPlayer" parent="."]
+[node name="TrapSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wwcvw")
+volume_db = 1.253
 autoplay = true
+max_distance = 200.0
+script = ExtResource("5_m5d7x")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="TrapSound" to="TrapSound" method="_on_finished"]

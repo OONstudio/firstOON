@@ -54,6 +54,7 @@ func _input(event):
 		set_physics_process(true)
 		
 	elif Input.is_action_just_pressed("atacar2") and !hitplayer:
+		$attack2.play()
 		set_physics_process(false)
 		$animacionesJP.play("attack1")
 		$Area2D/CollisionShape2D.disabled= false
@@ -92,7 +93,6 @@ func hit():
 func dead():
 	set_physics_process(false)
 	$animacionesJP.play("dead")
-	$deadvoice.play() 
 	$dead.play()
 	await $animacionesJP.animation_finished
 	queue_free()

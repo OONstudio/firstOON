@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bc0d7dudkr4a4"]
+[gd_scene load_steps=39 format=3 uid="uid://bc0d7dudkr4a4"]
 
 [ext_resource type="Script" path="res://escenas/enemigos-LVL-1/snake.gd" id="1_nks2r"]
 [ext_resource type="Texture2D" uid="uid://d1g31a67x3dyh" path="res://Assets/personajes/enemigos/snake/Snake_attack1.png" id="2_xqye1"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://jgf7l316ew3d" path="res://Assets/personajes/enemigos/snake/snake_hurt.png" id="4_h54f1"]
 [ext_resource type="Texture2D" uid="uid://bkdpfwk6j8we3" path="res://Assets/personajes/enemigos/snake/snake_idle.png" id="5_saffc"]
 [ext_resource type="Texture2D" uid="uid://ce8h0fddyggoc" path="res://Assets/personajes/enemigos/snake/snake_walk.png" id="6_4svbb"]
+[ext_resource type="AudioStream" uid="uid://1h3reoxhwkpc" path="res://Sounds/enemigos/torre1/snakeAttack.wav" id="7_sq33i"]
+[ext_resource type="AudioStream" uid="uid://des1dykpaq8sc" path="res://Sounds/enemigos/torre1/SnakeDeath.wav" id="8_7o77v"]
+[ext_resource type="AudioStream" uid="uid://dfmkyqdksmchl" path="res://Sounds/enemigos/torre1/SoftHit.mp3" id="9_ypnd8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bb7xl"]
 atlas = ExtResource("2_xqye1")
@@ -262,5 +265,17 @@ energy = 3.48
 shadow_enabled = true
 shadow_color = Color(0.496094, 0.09375, 0.210938, 1)
 texture = SubResource("GradientTexture2D_7r7vg")
+
+[node name="snakeAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sq33i")
+volume_db = 5.012
+
+[node name="SnakeDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7o77v")
+volume_db = 21.494
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ypnd8")
+volume_db = 6.265
 
 [connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
